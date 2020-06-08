@@ -1,0 +1,4 @@
+{
+  "prettier.disableLanguages": ["scss", "css", "html", "ts", "js"],
+  "beautify.ignore": "js"
+}
