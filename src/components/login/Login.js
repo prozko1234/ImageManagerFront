@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { loginUser } from "../../redux/actions/accountActions";
+import { connect } from "react-redux";
 
-const Login = () => {
+const Login = ({ loginUser, user }) => {
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
@@ -22,10 +24,17 @@ const Login = () => {
     //[event.target.name]: event.target.value
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    loginUser(userName, userPassword).catch((error) => {
+      console.log(error);
+    });
+  };
+
   return (
     <section className="loginPageSection">
       <div className="">
-        <form>
+        <form onSubmit={handleSubmit}>
           <h2>Login</h2>
           <label>Username</label>
           <input
@@ -56,9 +65,17 @@ const Login = () => {
           <input type="submit" />
         </form>
       </div>
-      <div>{userEmail + " " + userName + " " + userPassword}</div>
+      {user}
     </section>
   );
 };
 
-export default Login;
+const mapStateToProps = (state) => {
+  return { user: state.user };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  loginUser: (login, password) => dispatch(loginUser(login, password)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

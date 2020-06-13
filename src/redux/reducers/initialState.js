@@ -1,4 +1,6 @@
 export default {
-  mainProjects: [],
-  allProjects: [],
+  token: "",
+  user: {
+    username: "guest",
+  },
 };
