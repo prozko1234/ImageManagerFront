@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { loginUser } from "../../redux/actions/accountActions";
 import { connect } from "react-redux";
 
-const Login = ({ loginUser, user }) => {
+const Login = ({ loginUser, user, error }) => {
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
@@ -65,17 +65,16 @@ const Login = ({ loginUser, user }) => {
           <input type="submit" />
         </form>
       </div>
-      {user}
+      {user.username}
     </section>
   );
 };
 
 const mapStateToProps = (state) => {
-  return { user: state.user };
+  console.log(state);
+  return { user: state.accountReducer.user, error: state.accountReducer.error };
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  loginUser: (login, password) => dispatch(loginUser(login, password)),
-});
+const mapDispatchToProps = { loginUser };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

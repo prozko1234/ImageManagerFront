@@ -5,8 +5,9 @@ import App from "./components/App";
 import "../public/styles/main.scss";
 import configureStore from "./redux/configureStore";
 import { Provider as ReduxProvider } from "react-redux";
+import initialState from "./redux/reducers/initialState";
 
-const store = configureStore();
+const store = configureStore(initialState);
 
 render(
   <ReduxProvider store={store}>

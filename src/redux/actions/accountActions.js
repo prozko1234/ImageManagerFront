@@ -4,18 +4,19 @@ import { getToken } from "../../api/apiCalls";
 export const loginUser = (login, password) => {
   return (dispatch) => {
     return getToken(login, password)
-      .then((response) => {
-        dispatch(loginUserSuccess(response));
+      .then((user) => {
+        localStorage.setItem("token", user.access_token);
+        dispatch(loginUserSuccess(user));
       })
       .catch((error) => {
         dispatch(loginUserFailure(error));
+        throw error;
       });
   };
 };
 
-export const loginUserSuccess = (userData) => {
-  localStorage.setItem("token", userData.token);
-  return { type: types.LOGIN_USER_SUCCESS, userData };
+export const loginUserSuccess = (user) => {
+  return { type: types.LOGIN_USER_SUCCESS, user };
 };
 
 export const loginUserFailure = (error) => {
