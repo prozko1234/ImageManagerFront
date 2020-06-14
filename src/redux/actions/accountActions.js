@@ -9,7 +9,7 @@ export const loginUser = (login, password) => {
         dispatch(loginUserSuccess(user));
       })
       .catch((error) => {
-        dispatch(loginUserFailure(error));
+        dispatch(loginUserFailure("Login error."));
         throw error;
       });
   };

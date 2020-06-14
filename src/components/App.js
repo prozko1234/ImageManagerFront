@@ -4,8 +4,9 @@ import Home from "./home/Home";
 import Header from "./common/Header";
 import PageNotFound from "./PageNotFound";
 import Login from "./login/Login";
+import { connect } from "react-redux";
 
-function App() {
+function App({ user, error }) {
   return (
     <div className="main-container">
       <Header />
@@ -18,4 +19,8 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return { user: state.accountReducer.user, error: state.accountReducer.error };
+};
+
+export default connect(mapStateToProps, null)(App);
