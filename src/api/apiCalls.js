@@ -22,3 +22,11 @@ export function getToken(login, password) {
     .then(handleResponse)
     .catch(handleError);
 }
+
+export function getImages() {
+  return fetch(path + `api/image/getAllImages`, {
+    method: "GET",
+  })
+    .then(handleResponse)
+    .catch(handleError);
+}

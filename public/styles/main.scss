@@ -134,3 +134,26 @@ input[type=password], input[type=username], input[type=email] {
   .user-thumbnail {
     margin: 34px 20px 0 20px;
   }
+
+  .all-pictures {
+    display: flex;
+    flex-wrap: wrap;
+    .image-block {
+      width: 300px;
+      margin: 10px;
+      justify-content: center;
+      background-color: #cccccc;
+      .image-container {
+        height: 250px;
+        width: 90%;
+        margin: 5px auto;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .tags {
+        margin: 5px 10px 10px 20px;
+      }
+    }
+  }

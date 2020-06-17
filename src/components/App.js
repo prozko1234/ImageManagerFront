@@ -8,14 +8,14 @@ import { connect } from "react-redux";
 
 function App({ user, error }) {
   return (
-    <div className="main-container">
+    <section className="main-container">
       <Header />
       <Switch>
         <Route exact path="/" component={Home}></Route>
         <Route exact path="/login" component={Login}></Route>
         <Route component={PageNotFound}></Route>
       </Switch>
-    </div>
+    </section>
   );
 }
 

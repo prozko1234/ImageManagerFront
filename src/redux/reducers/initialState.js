@@ -6,5 +6,6 @@ export default {
     email: null,
     authentificated: false,
   },
+  images: {},
   error: null,
 };
