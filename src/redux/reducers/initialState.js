@@ -1,11 +1,16 @@
 export default {
-  user: {
-    role: "Guest",
-    username: "Guest",
-    access_token: null,
-    email: null,
-    authentificated: false,
+  accountReducer: {
+    user: {
+      role: "Guest",
+      username: "Guest",
+      access_token: null,
+      email: null,
+      authStatus: false,
+      error: null,
+    },
   },
-  images: {},
-  error: null,
+  imageReducer: {
+    images: [],
+    error: null,
+  },
 };

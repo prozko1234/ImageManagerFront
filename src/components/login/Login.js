@@ -27,8 +27,8 @@ const Login = ({ loginUser, user, error }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    loginUser(userName, userPassword).catch((error) => {
-      console.log(error);
+    loginUser(userName, userPassword).catch((err) => {
+      console.log(err);
     });
     setUserAuthentificated(true);
   };
@@ -65,6 +65,7 @@ const Login = ({ loginUser, user, error }) => {
             <br />
 
             <input type="submit" />
+            {error || ""}
           </form>
         </div>
       </section>

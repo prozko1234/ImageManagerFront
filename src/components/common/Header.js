@@ -3,17 +3,7 @@ import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 
 function Header({ user, error }) {
-  const [userAuthentificated, setUserAuthentificated] = useState(false);
-
-  useEffect(() => {
-    if (user.authentificated) {
-      setUserAuthentificated(true);
-    } else {
-      setUserAuthentificated(false);
-    }
-  });
-
-  if (userAuthentificated)
+  if (user.authStatus)
     return (
       <nav className="nav-container">
         <div className="user-thumbnail">

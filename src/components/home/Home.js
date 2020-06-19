@@ -4,7 +4,7 @@ import AllPictures from "./AllPictures";
 export default function Home() {
   return (
     <section className="home-front-section">
-      <AllPictures></AllPictures>
+      <AllPictures userGallery={false}></AllPictures>
     </section>
   );
 }

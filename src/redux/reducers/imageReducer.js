@@ -1,7 +1,8 @@
 import * as types from "../../constants/actionTypes";
+import initialState from "./initialState";
 
 export default function imageReducer(
-  state = { images: [], error: {} },
+  state = initialState.imageReducer,
   action
 ) {
   switch (action.type) {
