@@ -29,6 +29,7 @@ const Login = ({ loginUser, user, error }) => {
     event.preventDefault();
     loginUser(userName, userPassword).catch((err) => {
       console.log(err);
+      setUserAuthentificated(false);
     });
     setUserAuthentificated(true);
   };

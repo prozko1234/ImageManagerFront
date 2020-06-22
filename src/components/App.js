@@ -6,7 +6,7 @@ import PageNotFound from "./PageNotFound";
 import Login from "./login/Login";
 import { connect } from "react-redux";
 import { getUserAuth } from "../redux/actions/accountActions";
-import Gallery from "./gallery/Gallery";
+import Gallery from "../components/gallery/Gallery";
 
 function App({ getUserAuth, user, error }) {
   if (localStorage.getItem("token") != null)
@@ -22,7 +22,7 @@ function App({ getUserAuth, user, error }) {
       <Switch>
         <Route exact path="/" component={Home}></Route>
         <Route exact path="/login" component={Login}></Route>
-        <Route exact path="/gallery:slug" component={Gallery}></Route>
+        <Route exact path="/gallery" component={Gallery}></Route>
         <Route component={PageNotFound}></Route>
       </Switch>
     </section>

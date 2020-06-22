@@ -27,7 +27,11 @@ export const getUserAuth = (token) => {
   return (dispatch) => {
     return authentificate(token)
       .then((user) => {
-        dispatch(authUserSuccess(user));
+        if (user === 401) {
+          dispatch(authUserFailures(401));
+        } else {
+          dispatch(authUserSuccess(user));
+        }
       })
       .catch((error) => {
         dispatch(authUserFailures(error));

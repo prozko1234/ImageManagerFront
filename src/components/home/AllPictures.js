@@ -1,19 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
-import { getAllImages } from "../../redux/actions/imageActions";
+import React from "react";
 
-function AllPictures({ getAllImages, images, error, user, userGallery }) {
-  useEffect(() => {
-    if (!userGallery) {
-      getAllImages().catch((error) => {
-        console.log(error);
-      });
-    } else if (userGallery) {
-      getAllImages().catch((error) => {
-        console.log(error);
-      });
-    }
-  }, []);
+function AllPictures({ images }) {
   return (
     <section className="all-pictures">
       {images.map((image) => {
@@ -35,10 +22,4 @@ function AllPictures({ getAllImages, images, error, user, userGallery }) {
   );
 }
 
-const mapStateToProps = (state) => {
-  return { images: state.imageReducer.images };
-};
-
-const mapDispatchToProps = { getAllImages };
-
-export default connect(mapStateToProps, mapDispatchToProps)(AllPictures);
+export default AllPictures;
